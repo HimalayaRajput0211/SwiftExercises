@@ -42,12 +42,12 @@ class TableViewController: UIViewController {
             }
         }
     }
-    private var rightBarButton: RightBarButton = .Edit
+    private var rightBarButton: RightBarButton = .edit
     
     @IBAction private func edit(_ sender: UIBarButtonItem) {
         tableView.isEditing = !tableView.isEditing
         sender.title = rightBarButton.title()
-        if rightBarButton == .Edit {
+        if rightBarButton == .edit {
             cellSelectionCount = 0
         }
         reloadVisibleCells()
@@ -116,12 +116,12 @@ extension TableViewController:  UITableViewDelegate, UITableViewDataSource {
 
 extension TableViewController {
    private enum RightBarButton: String {
-        case Edit
-        case Done
+        case edit = "Edit"
+        case done = "Done"
         mutating func title() -> String {
             switch self {
-            case .Edit: self = .Done ; return self.rawValue
-            case .Done: self = .Edit ; return self.rawValue
+            case .edit: self = .done ; return self.rawValue
+            case .done: self = .edit ; return self.rawValue
             }
         }
     }
